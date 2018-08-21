@@ -12,19 +12,22 @@ const editProfile = {
                 <input class="input__contact" type="text" ng-model="$ctrl.edited.contact">
             </label>
             <label for="bio">Bio
-                <input class="input__bio" type="text" ng-model="$ctrl.edited.bio">
+                <textarea class="input__bio" type="text" ng-model="$ctrl.edited.bio"></textarea>
             </label>
-            <button ng-click="$ctrl.updateInfo(); $location.path('/user_profile');">Update</button>
+            <button class="btn__update">Update</button>
         </form>
     </section>
     `,
-    controller: ['DataService', function(DataService) {
+    controller: ['DataService', '$location', function(DataService, $location) {
         const vm = this;
+
+        vm.edited = DataService.getUserProfile();
 
         vm.onSubmit = (edited) => {
             console.log("Submit: ");
             console.log(edited);
             DataService.setUserProfile(edited);
+            $location.path('/user_profile');
         };
     }]
 

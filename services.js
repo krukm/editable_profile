@@ -1,6 +1,6 @@
 'use strict';
 
-function DataService() {
+function DataService($location) {
     const vm = this;
 
     vm.profile = {
@@ -13,10 +13,12 @@ function DataService() {
         vm.profile = profile;
         console.log("Set: ");
         console.log(profile);
+        $location.path('/user-profile');
     };
 
    vm.getUserProfile = () => {
-       console.log("Get: " + vm.profile);
+        console.log("Get: ")
+        console.log(vm.profile);
         return vm.profile;
    };
 }

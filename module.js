@@ -9,6 +9,6 @@ angular.module('app', ['ngRoute'])
         .when('/edit_profile', {
             template: '<edit-profile></edit-profile>'
         })
-        .otherwise({ redirectTo: 'user_profile'
+        .otherwise({ redirectTo: '/user_profile'
     });
 }]);    
